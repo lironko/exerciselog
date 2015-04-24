@@ -24,15 +24,20 @@
           <%= nav_link 'About', about_path %>
           <%= nav_link 'Contact', contact_path %>
         </ul>
+	<ul class="nav navbar-nav navbar-right">
+	  <%= render 'devise/menu/registration_items' %>
+	  <%= render 'devise/menu/login_items' %>
+        </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
   </nav><!-- /.navbar -->
 
   <div class="container">
+    <%= bootstrap_flash %>
     <%= yield %>
     <hr>
     <footer>
-      &copy; Alexush Chan & Liron Kun
+      &copy; Sashuha  & Liron
     </footer>
   </div>
 
