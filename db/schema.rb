@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502093226) do
+ActiveRecord::Schema.define(version: 20150617054745) do
+
+  create_table "exercise_records", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.integer  "workout_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "exercise_records", ["exercise_id"], name: "index_exercise_records_on_exercise_id"
+  add_index "exercise_records", ["workout_id"], name: "index_exercise_records_on_workout_id"
+
+  create_table "exercise_sets", force: :cascade do |t|
+    t.decimal  "weight"
+    t.integer  "reps"
+    t.integer  "exerciseRecord_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "exercise_sets", ["exerciseRecord_id"], name: "index_exercise_sets_on_exerciseRecord_id"
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -38,5 +58,15 @@ ActiveRecord::Schema.define(version: 20150502093226) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "workouts", force: :cascade do |t|
+    t.date     "date"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
 
 end

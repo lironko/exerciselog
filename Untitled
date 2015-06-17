@@ -1,0 +1,40 @@
+How to add the workout model:
+
+ 
+
+1. Generate the workout model which should have:
+
+#Workout
+- date:date
+- notes:text
+- user:references
+
+belongs_to :user
+has_many :exerciseRecords
+accepts_nested_attributes_for :exerciseRecords
+
+
+2. Generate the exerciseRecord which should have:
+
+#exerciseRecord
+- exercise:references
+- workout:references
+
+belongs_to :exercise
+belongs_to :workout
+accepts_nested_attributes_for :exerciseSet
+
+3. Add to exercise
+
+has_many :exerciseRecord
+
+4. Genereate the exerciseSet which should have:
+
+#set
+- weight:decimal
+- reps:integer
+- exerciseRecord:references
+
+belongs_to :exerciseRecord
+belongs_to :exercise, throgh:
+	:exerciseRecord
