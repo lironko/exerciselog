@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20150617054745) do
   create_table "exercise_sets", force: :cascade do |t|
     t.decimal  "weight"
     t.integer  "reps"
-    t.integer  "exerciseRecord_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "exercise_record_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  add_index "exercise_sets", ["exerciseRecord_id"], name: "index_exercise_sets_on_exerciseRecord_id"
+  add_index "exercise_sets", ["exercise_record_id"], name: "index_exercise_sets_on_exercise_record_id"
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"

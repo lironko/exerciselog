@@ -28,7 +28,10 @@ gem "twitter-bootstrap-rails"
 
 #devise
 gem 'devise', github: 'plataformatec/devise'
+
+#forms stuff
 gem 'simple_form', '3.1.0.rc2'
+gem 'cocoon'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

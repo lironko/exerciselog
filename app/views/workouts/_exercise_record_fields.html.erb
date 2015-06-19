@@ -1,0 +1,12 @@
+<div class='nested-fields'>
+  <%= f.input :exercise_id %>
+  <div id="sets">
+    <%= f.simple_fields_for :exercise_sets do |exercise_set| %>
+      <%= render 'exercise_set_fields', :f => exercise_set %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add set', f, :exercise_sets %>
+    </div>
+  </div>
+  <%= link_to_remove_association 'remove record' , f %>
+</div>

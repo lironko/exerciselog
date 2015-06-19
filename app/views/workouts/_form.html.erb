@@ -1,0 +1,14 @@
+<%= simple_form_for(@workout) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :notes %>
+  <h3>Exercises</h3>
+  <div id="exercise_records">
+    <%= f.simple_fields_for :exercise_records do |exercise_record| %>
+      <%= render 'exercise_record_fields', :f => exercise_record %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add exercise record', f, :exercise_records %>
+    </div>
+  </div>
+  <%= f.button :submit %>
+<% end %>

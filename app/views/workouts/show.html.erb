@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<h1>Workout</h1>
+<div>
+  <table class="table">
+    <tr>
+      <td>Date:</td>
+      <td><%= @workout.date %></td>
+    </tr>
+    <tr>
+      <td>Notes:</td>
+      <td><%= @workout.notes %></td>
+    </tr>
+  </table>
+  <% @workout.exercise_records.each do |record| %>
+    <h3><%= record.exercise.name %></h3>
+    <table class="table table-striped">
+      <tr>
+        <th>
+          Weight
+        </th>
+        <th>
+          Reps
+        </th>
+      </tr>
+      <% record.exercise_sets.each do |set| %>
+        <tr>
+          <td>
+            <%= set.weight %>
+          </td>
+          <td>
+            <%= set.reps %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+<%= link_to 'Edit', edit_workout_path(@workout) %> |
+<%= link_to 'Back', workouts_path %>

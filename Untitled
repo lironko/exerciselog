@@ -38,3 +38,5 @@ has_many :exerciseRecord
 belongs_to :exerciseRecord
 belongs_to :exercise, throgh:
 	:exerciseRecord
+	
+{:date=>2015-06-18 03:12:16 +0000, :notes=>"That's a nice workout", :exerciseRecords_attributes=>[{:exercise_id=>1, :workout_id=>1, :exerciseSets_attributes=>[{:weight=>50, :reps=>5}]}]} 

@@ -1,3 +1,3 @@
 class ExerciseSet < ActiveRecord::Base
-  belongs_to :exerciseRecord
+  belongs_to :exercise_record
 end
