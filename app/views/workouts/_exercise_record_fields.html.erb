@@ -1,12 +1,10 @@
-<div class='nested-fields'>
-  <%= f.input :exercise_id %>
-  <div id="sets">
+<li class='nested-fields form-inline'>
+  <ul id="sets">
+    <%= f.association :exercise %>
+    <%= link_to_add_association 'add a set', f, :exercise_sets, class: 'btn btn-primary btn-xs', :data => { "association-insertion-method" => "append" } %>
+    <%= link_to_remove_association 'remove exercise' , f , class: 'btn btn-danger btn-xs', :data => {:confirm => 'do you really want to do this?'} %>
     <%= f.simple_fields_for :exercise_sets do |exercise_set| %>
       <%= render 'exercise_set_fields', :f => exercise_set %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add set', f, :exercise_sets %>
-    </div>
-  </div>
-  <%= link_to_remove_association 'remove record' , f %>
-</div>
+  </ul>
+</li>

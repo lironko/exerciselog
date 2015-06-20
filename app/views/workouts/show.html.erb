@@ -1,16 +1,9 @@
-<p id="notice"><%= notice %></p>
-<h1>Workout</h1>
+<h1>Workout (<%= @workout.date %>)</h1>
 <div>
-  <table class="table">
-    <tr>
-      <td>Date:</td>
-      <td><%= @workout.date %></td>
-    </tr>
-    <tr>
-      <td>Notes:</td>
-      <td><%= @workout.notes %></td>
-    </tr>
-  </table>
+  <p>Notes:</p>
+  <blockquote>
+    <p><%= @workout.notes %></p>
+  </blockquote>
   <% @workout.exercise_records.each do |record| %>
     <h3><%= record.exercise.name %></h3>
     <table class="table table-striped">
