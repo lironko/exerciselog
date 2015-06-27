@@ -11,6 +11,7 @@
  * file per style scope.
  
  *= require bootstrap-datepicker3
+ *= require jquery-ui/sortable
  *= require_tree .
  *= require_self
  */
@@ -28,7 +29,7 @@ body {
 footer {
     padding: 30px 0;
 }
-/* User sign in and sign forms. */
+/* User sign in and sign out forms. */
 
 .border-form-div {
   max-width: 450px;

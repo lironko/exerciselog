@@ -13,17 +13,9 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui/sortable
 //= require cocoon
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
-
-$( document ).ready(function() {
-   $('#workout_date').datepicker({
-      format: "yyyy-mm-dd",
-      todayBtn: "linked",
-      autoclose: true,
-      todayHighlight: true
-  });
-});
