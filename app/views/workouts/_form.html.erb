@@ -1,12 +1,14 @@
 <%= simple_form_for(@workout) do |f| %>
   <%= f.input :date, as: :string %>
   <%= f.input :notes %>
-  <ul id="exercises">
-      <span class="h3">Exercises</span>
-      <%= link_to_add_association 'add exercise', f, :exercise_records, class: 'btn btn-primary btn-xs', :data => { "association-insertion-method" => "append" }  %>
+  <h3>Exercises</h3>
+  <div id="exercises">
     <%= f.simple_fields_for :exercise_records do |exercise_record| %>
       <%= render 'exercise_record_fields', :f => exercise_record %>
     <% end %>
-  </ul>
-  <%= f.button :submit %>
+    <div class="links">
+      <%= link_to_add_association 'add exercise', f, :exercise_records, class: 'btn btn-primary btn-xs' %>
+    </div>
+  </div>
+  <%= f.button :submit, class: 'btn btn-success'%>
 <% end %>
