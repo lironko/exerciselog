@@ -4,5 +4,26 @@ $( document ).ready(function() {
       todayBtn: "linked",
       autoclose: true,
       todayHighlight: true
-  });
+   });
+  
+   $('#exercises').sortable(
+     {
+      items: "div.form-inline.exercise-record.nested-fields.well"
+     }
+   );
+   
+   $('.sets').sortable(
+      {
+         items: "div.form-inline.nested-fields.set"
+      }
+   );
+   
+   //after exercise insert
+   $('#exercises').bind('cocoon:after-insert', function(e,insertedItem){
+      insertedItem.find('.sets').sortable(
+         {
+            items: "div.form-inline.nested-fields.set"
+         }
+      );
+   });
 });
