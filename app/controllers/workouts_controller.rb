@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
 
   # GET /workouts
   # GET /workouts.json
@@ -67,7 +68,11 @@ class WorkoutsController < ApplicationController
     def set_workout
       @workout = Workout.find(params[:id])
     end
-
+    
+    def correct_user
+      redirect_to(root_url) if current_user != @workout.user
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
       params.require(:workout).permit(:date, :notes,

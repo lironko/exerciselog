@@ -6,6 +6,8 @@ $( document ).ready(function() {
       todayHighlight: true
    });
   
+  
+   // sortable workout form
    $('#exercises').sortable(
      {
       items: "div.form-inline.exercise-record.nested-fields.well"

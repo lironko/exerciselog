@@ -1,32 +1,35 @@
 <% provide(:title, "Workout") %>
-<h1>Workout (<%= @workout.date %>)</h1>
+<h1><%= @workout.date %></h1>
 <div>
   <p>Notes:</p>
   <blockquote>
     <p><%= @workout.notes %></p>
   </blockquote>
   <% @workout.exercise_records.each do |record| %>
-    <h3><%= record.exercise.name %></h3>
-    <table class="table table-striped">
-      <tr>
-        <th>
-          Weight
-        </th>
-        <th>
-          Reps
-        </th>
-      </tr>
-      <% record.exercise_sets.each do |set| %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><span class="h4"><%= record.exercise.name %></span> <span class="pull-right">volume: <%= record.volume %> </span></div>
+      <table class="table table-hover">
         <tr>
-          <td>
-            <%= set.weight %>
-          </td>
-          <td>
-            <%= set.reps %>
-          </td>
+          <th>
+            Weight (max: <%= record.max_weight %> )
+          </th>
+          <th>
+            Reps (total: <%= record.total_reps %> )
+          </th>
         </tr>
-      <% end %>
-    </table>
+        <% record.exercise_sets.each do |set| %>
+          <tr>
+            <td>
+              <%= set.weight %>
+            </td>
+            <td>
+              <%= set.reps %>
+            </td>
+          </tr>
+        <% end %>
+      </table>  
+    </div>
+    
   <% end %>
 </div>
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
