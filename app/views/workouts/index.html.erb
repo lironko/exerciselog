@@ -7,16 +7,16 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
-        <td><%= link_to workout.id, workout_path(workout) %></td>
         <td><%= link_to workout.date, workout_path(workout) %></td>
+        <td><%= link_to workout.notes, workout_path(workout) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_workout_path(workout), :class => 'btn btn-default btn-xs' %>
