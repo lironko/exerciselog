@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:date) %></th>
+      <th>Exercises</th>
       <th><%= model_class.human_attribute_name(:notes) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,6 +17,7 @@
     <% @workouts.each do |workout| %>
       <tr>
         <td><%= link_to workout.date, workout_path(workout) %></td>
+        <td><%= workout.included_exercises %></td>
         <td><%= link_to workout.notes, workout_path(workout) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
