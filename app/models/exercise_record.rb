@@ -3,7 +3,9 @@ class ExerciseRecord < ActiveRecord::Base
   message: " please pick an exercise from the exercises list." }
   
   has_many :exercise_sets, dependent: :destroy
+  belongs_to :workout
   belongs_to :exercise
+  has_one :user, through: :workout
   accepts_nested_attributes_for :exercise_sets, :reject_if => :all_blank, :allow_destroy => true
   
   def total_reps

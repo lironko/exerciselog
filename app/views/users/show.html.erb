@@ -1,0 +1,16 @@
+<% provide(:title, @user.email ) %>
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=@user.email %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <p>Hello this user is pretty cool</p>
+</dl>
+
+<h3>PRs:</h3>
+
+
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              users_path, :class => 'btn btn-default'  %>
