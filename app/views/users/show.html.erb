@@ -1,0 +1,31 @@
+<% provide(:title, @user.email ) %>
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=@user.email %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <p>Hello this user is pretty cool</p>
+</dl>
+
+<h3>PRs:</h3>
+<table class="table table-hover">
+  <tr>
+    <th>Exercise</th>
+    <th>Weight</th>
+    <th>Reps</th>
+    <th>Date</th>
+  </tr>
+  <% @user.all_prs.each do |pr| %>
+    <tr>
+      <td><%= link_to(pr.exercise.name, exercise_path(pr.exercise)) %></td>
+      <td><%= pr.weight %></td>
+      <td><%= pr.reps %></td>
+      <td><%= link_to(pr.workout.date, workout_path(pr.workout)) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              users_path, :class => 'btn btn-default'  %>
