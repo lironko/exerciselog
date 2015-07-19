@@ -5,5 +5,6 @@ class ExerciseSet < ActiveRecord::Base
   belongs_to :exercise_record
   has_one :workout, through: :exercise_record
   has_one :user, through: :workout
+  has_one :exercise, through: :exercise_record
   
 end

@@ -11,7 +11,7 @@
       <table class="table table-hover">
         <tr>
           <th>
-            Weight (max: <%= record.max_weight %> )
+            Weight (max: <%= record.max_weight_set.weight if record.max_weight_set %> )
           </th>
           <th>
             Reps (total: <%= record.total_reps %> )
@@ -29,7 +29,6 @@
         <% end %>
       </table>  
     </div>
-    
   <% end %>
 </div>
 <%= link_to 'Edit', edit_workout_path(@workout) %> |

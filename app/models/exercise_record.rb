@@ -24,14 +24,8 @@ class ExerciseRecord < ActiveRecord::Base
     return vol
   end
   
-  def max_weight
-    max = 0
-    self.exercise_sets.each do |set|
-      if set.weight > max
-        max = set.weight
-      end
-    end
-    return max
+  def max_weight_set
+    self.exercise_sets.order('weight DESC, reps DESC').first
   end
   
   
