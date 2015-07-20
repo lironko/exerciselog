@@ -7,8 +7,8 @@ class Workout < ActiveRecord::Base
   accepts_nested_attributes_for :exercise_records, :reject_if => :all_blank, :allow_destroy => true
   
   #exercises included in the workout (string)
-  def included_exercises
-    ids = self.exercise_records.map &:exercise_id
-    (Exercise.where(id: ids).map &:name).join(', ')
+  def exercises
+    ids = self.exercise_records.pluck(:exercise_id)
+    Exercise.where(id: ids)
   end
 end

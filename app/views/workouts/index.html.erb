@@ -17,7 +17,7 @@
     <% @workouts.each do |workout| %>
       <tr>
         <td><%= link_to workout.date, workout_path(workout) %></td>
-        <td><%= workout.included_exercises %></td>
+        <td><%= exercises_with_links(workout.exercises) %></td>
         <td><%= link_to workout.notes, workout_path(workout) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
