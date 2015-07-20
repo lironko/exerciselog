@@ -7,6 +7,8 @@
 <dl class="dl-horizontal">
   <p>There will be something in here. Sometime.</p>
   <%= userpr(@exercise.id) %>
+  <p>Website average weight: <%= website_average(@exercise) %></p>
+  <p>Website best: <%= website_best(@exercise) %></p>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

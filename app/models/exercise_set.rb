@@ -7,4 +7,7 @@ class ExerciseSet < ActiveRecord::Base
   has_one :user, through: :workout
   has_one :exercise, through: :exercise_record
   
+  def to_s
+    self.weight.to_s + " * " + self.reps.to_s
+  end
 end
