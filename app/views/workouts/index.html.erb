@@ -20,6 +20,8 @@
         <td><%= exercises_with_links(workout.exercises) %></td>
         <td><%= link_to workout.notes, workout_path(workout) %></td>
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      workout_path(workout), :class => 'btn btn-primary btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_workout_path(workout), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
