@@ -1,0 +1,18 @@
+// Place all the styles related to the Workouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (max-width: 768px) {
+  .set-field {
+    display: inline-block;
+    width: 42%;
+    margin-bottom: 0;
+  }
+  .exercise-field {
+    display: inline-block;
+    width: 86%;
+    margin-bottom: 0;
+  }
+}
+
+

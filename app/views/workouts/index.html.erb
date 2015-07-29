@@ -4,6 +4,9 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   <p>Your workouts.</p>
 </div>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_workout_path,
+            :class => 'btn btn-primary' %>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -20,8 +23,7 @@
         <td><%= exercises_with_links(workout.exercises) %></td>
         <td><%= link_to workout.notes, workout_path(workout) %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      workout_path(workout), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to "Show", workout_path(workout), :class => 'btn btn-primary btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_workout_path(workout), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -34,7 +36,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_workout_path,
-            :class => 'btn btn-primary' %>
